@@ -1,0 +1,35 @@
+body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url('http://eskipaper.com/images/plain-backgrounds-1.jpg');
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#aboard{
+  max-height: 60%;
+  width: 70%;
+  padding-top: 10px
+}
+
+@media only screen and (min-width: 500px) {
+  #aboard {
+    max-height: 40%;
+    width: 50%;
+  }
+}
+
+.starter-template {
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+}

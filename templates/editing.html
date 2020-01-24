@@ -1,0 +1,66 @@
+{%extends "bootstrap/base.html" %}
+
+
+
+{% block title %}
+Top100 Memes
+{% endblock %}
+
+
+{% block styles %}
+{{super()}}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{url_for('.static', filename='gallery5.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='editing2.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{%block content%}
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{url_for('top100')}}">Meme Generator</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{url_for('mymemes')}}">Profile</a></li>
+            <li><a href="{{url_for('logout')}}">Log Out</a></li>
+            <li><a href="{{url_for('top100')}}">Top Memes</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<div class="text-center">
+  <img src="{{image}}" style="padding-top: 100px; max-height: 35%; max-width: 35%" class="rounded" alt="...">
+</div>
+<br/>
+<div class="container">
+      <form class="form-edit" method="POST" action="/mymemes">
+        <h2 class="form-signin-heading">Editing, {{name}}</h2>
+        <label for="inputlg">Text 1</label>
+        <input class="form-control input-lg" minlength="1" id="inputlg" type="text" name="text1">
+        <label for="inputlg">Text 2</label>
+        <input class="form-control input-lg" id="inputlg" type="text" name="text2">
+        <label for="inputlg"></label>
+        <div class="col text-center">
+            <button type="submit" class="btn btn-default" style="background-color: #D3D3D3;width: 60%">Generate Meme</button>
+            <input type="hidden" name="template_id" value="{{ template_id }}">
+        </div>
+      </form>
+</div> <!-- /container -->
+
+{%endblock%}
